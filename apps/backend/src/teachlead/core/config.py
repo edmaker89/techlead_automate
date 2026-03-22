@@ -15,7 +15,10 @@ class Settings(BaseSettings):
     )
 
     env: str = Field(default="development", alias="ENV")
-    database_url: str = Field(alias="DATABASE_URL")
+    database_url: str = Field(
+        default="postgresql+psycopg://teachlead:teachlead@db:5432/teachlead",
+        alias="DATABASE_URL",
+    )
     cors_origins: list[str] = Field(
         default_factory=lambda: ["http://localhost:5173"],
         alias="CORS_ORIGINS",
